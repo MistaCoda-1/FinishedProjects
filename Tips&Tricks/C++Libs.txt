@@ -1,0 +1,88 @@
+/*
+==========================
+ C++ Standard Library Cheatsheet
+==========================
+
+< iostream >
+- Input/output stream (cin, cout, cerr)
+- Console interaction
+
+< string >
+- std::string class for handling text
+- Easier than C-style char arrays
+
+< vector >
+- Dynamic/resizable array (std::vector)
+- Like JS arrays
+
+< algorithm >
+- Common algorithms: sort, find, max, min, etc.
+- Works with containers like vector
+
+< cmath >
+- Math functions: sqrt, pow, abs, sin, cos, etc.
+
+< fstream >
+- File input/output: ifstream (read), ofstream (write)
+
+< cstdlib >
+- General utilities: rand(), exit(), malloc/free
+
+< ctime >
+- Time functions: time(), clock()
+- Good for random seed: srand(time(0));
+
+< iomanip >
+- I/O formatting: setprecision, setw, fixed
+- Useful for formatting decimals, columns
+
+< sstream >
+- String stream manipulation: stringstream
+- Convert strings to numbers and vice versa
+
+< map >
+- Key-value pairs (std::map)
+- Like JS objects or dictionaries
+
+< set >
+- Stores unique elements (std::set)
+
+< array >
+- Fixed-size array with STL interface
+
+< thread >
+- C++11 multithreading support
+
+< mutex >
+- Synchronization between threads
+
+< exception >
+- Exception types and handling (try/catch)
+
+==========================
+ Notes:
+ - Most functions/classes are inside the 'std' namespace.
+   Use std::cout or add 'using namespace std;'
+ - C++ headers = no .h at the end (e.g., <iostream>, not <iostream.h>)
+ - STL = Standard Template Library (containers + algorithms)
+
+==========================
+ Quick STL Examples:
+
+#include <vector>
+#include <algorithm>
+
+std::vector<int> nums = {4, 1, 7};
+std::sort(nums.begin(), nums.end()); // nums = {1, 4, 7}
+
+#include <string>
+std::string name = "John";
+std::cout << name.length(); // 4
+
+#include <sstream>
+std::stringstream ss("42");
+int x;
+ss >> x; // x = 42
+
+==========================
+*/

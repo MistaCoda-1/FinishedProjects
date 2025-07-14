@@ -1,0 +1,152 @@
+C++ Notes
+
+Basic Structure
+Always remember this boilerplate:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    return 0;
+}
+
+───────────────────────────────
+
+Data Types
+
+int
+→ Whole numbers (e.g. 5, -12)
+
+double
+→ Decimal numbers (e.g. 3.14)
+
+char
+→ A single character (e.g. 'A', '7')
+
+string
+→ A string of characters (e.g. "Hello")
+
+bool
+→ true or false values
+
+───────────────────────────────
+
+Variable Declarations
+
+int age = 20;
+double pi = 3.14;
+char grade = 'A';
+string name = "Dominic";
+bool pogi = true;
+
+───────────────────────────────
+
+Input / Output
+
+cout << "Hello";
+cin >> variable;
+
+───────────────────────────────
+
+If / Else Statements
+
+if (condition) {
+        // runs if condition is true
+} else if (otherCondition) {
+        // runs if that’s true
+} else {
+        // runs if none are true
+}
+
+Comparison operators:
+== equal   != not equal
+< less than  > greater than
+<= less or equal >= greater or equal
+
+───────────────────────────────
+
+Loops
+
+    // for loop
+for (int i = 0; i < 5; i++) {
+  cout << i;
+}
+
+    // while loop
+while (condition) {
+    // repeat while true
+}
+
+───────────────────────────────
+
+Switch Statements
+
+switch (value) {
+  case option1:
+        // code
+    break;
+  case option2:
+        // code
+    break;
+  default:
+        // fallback
+    break;
+}
+
+→ Only works with int, char, or enum types
+
+───────────────────────────────
+
+Functions
+
+int add(int a, int b) {
+  return a + b;
+}
+
+→ You can define and reuse blocks of code
+
+───────────────────────────────
+
+String & Number Formatting
+
+#include <string>
+#include <iomanip>
+#include <cmath>
+
+to_string(123)              // int → string
+stoi("123")                 // string → int
+fixed << setprecision(2)    // shows 2 decimals
+
+───────────────────────────────
+
+Sleep / Pause / Exit
+
+#include <windows.h>
+Sleep(2000);        // 2 second pause
+system("pause");    // press any key to continue
+exit(0);            // end program early
+return 0;           // end main normally
+
+───────────────────────────────
+
+Common Headers
+
+#include <iostream>     // cout, cin
+#include <string>       // string variables
+#include <cmath>        // math like sqrt(), pow()
+#include <iomanip>      // formatting decimals
+#include <cstdlib>      // system(), exit()
+#include <windows.h>    // Sleep()
+
+───────────────────────────────
+
+Helpful Reminders
+
+→ Use ; at the end of most lines
+→ ' ' for char, " " for string
+→ == compares, = assigns
+→ cin >> and cout << are your best friends
+→ Always wrap logic blocks in { }
+
+───────────────────────────────
