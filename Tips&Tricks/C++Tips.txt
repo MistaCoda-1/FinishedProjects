@@ -13,6 +13,22 @@ int main() {
 
 ───────────────────────────────
 
+    ofstream outFile("readAndWrite.txt");
+    if (outFile.is_open()) {
+    outFile << "{\n  \"users\": [\n";
+    for (size_t i = 0; i < users.size(); ++i) {
+        const User& u = users[i];
+        outFile << "    {\n";
+        outFile << "      \"username\": \"" << u.username << "\",\n";
+        outFile << "      \"password\": \"" << u.password << "\",\n";
+        outFile << "    }" << (i < users.size() - 1 ? "," : "") << "\n";
+    }
+    outFile << "  ]\n}";
+    outFile.close();
+    }
+
+───────────────────────────────
+
 Data Types
 
 int
