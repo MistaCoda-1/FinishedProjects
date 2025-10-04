@@ -33,7 +33,7 @@ double simulateFutureValue(double P, double d, double annualRate, int compPerYea
 
 int main() {
     double initialDep, rateDep, years;
-    double annualRate = 0.15;
+    double annualRate = 0.055;
     int compPeriod, depPeriod;
 
     cout << "Annuity Formula Calculator\n\n";
