@@ -5,24 +5,36 @@ struct Bike {
     int speed = 0;
     int minspeed = 0;
     int maxspeed = 100;
+    int fuel = 10;
 
     void accelerate() {
-        if (speed < maxspeed) {
-            speed += 10;
-            cout << "\nThe bike is now going " << speed << " km/h!\n";
-        } else {
-            cout << "\nSlow down, you're going too fast!\n";
+        if (fuel <= 0) {
+            cout << "\nYou're out of fuel!\n";
+            return;
         }
+
+        if (speed >= maxspeed) {
+            cout << "\nSlow down, you're going too fast!\n";
+            return;
+        }
+
+        speed += 10;
+        fuel -= 3;
+        cout << "\nThe bike is now going " << speed << " km/h!\n";
+        cout << "Fuel gauge: " << fuel << endl;
     }
 
     void decelerate() {
         if (speed > minspeed) {
             speed -= 5;
             cout << "\nThe bike is now going " << speed << " km/h!\n";
+            cout << "Fuel gauge: " << fuel << endl;
         } else {
             cout << "\nYou can't get any slower than not moving.\n";
+            cout << "Fuel gauge: " << fuel << endl;
         }
     }
+    
 };
 
 int main() {
@@ -47,7 +59,7 @@ int main() {
         } else {
             cout << "\nThe bike stalled.\n";
         }
-    } while (choice != 3);
+    } while (choice != 3 && ninja400.fuel > 0);
 
     return 0;
 }
