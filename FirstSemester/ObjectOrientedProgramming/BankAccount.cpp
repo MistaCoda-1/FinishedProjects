@@ -4,8 +4,8 @@ using namespace std;
 class BankAccount {
 private:
     int balance = 1092;
-    int accountNum = 232;
-    int accountPass = 2332;
+    int accountNum = 1;
+    int accountPass = 1;
 public:
 
     void getBal() {

@@ -1,0 +1,41 @@
+[ 1 ]   ✔️✔️✔️
+//=================================================//
+//====   USER OBJECT CREATES/APPENDS TO .TXT   ====//
+//=================================================//
+
+Create an object that can take in user data; name, id, etc.. 
+then encrypt the data before appending to an external file.
+
+Additionaly, it should be able to read that data and decrypt
+it to return to the main file.
+
+[ 2 ]   ✔️✔️✔️
+//====================================================//
+//====   READER OBJECT TO RETRIEVE ACCOUNT DATA   ====//
+//====================================================//
+
+Create stuct that can be used to retrieve data from a .csv file
+that can handle multiple users.
+
+Additionaly, it should be able to scan the whole .csv file and
+check if the user exists or if the ID entered is correct.
+
+[ 3 ]
+//========================================================//
+//====   ACCOUNT MANAGER TO STORE USERS & PASSWORDS   ====//
+//========================================================//
+
+Create a program that can manage 3+ accounts, this includes
+registering, logging in, storing their data and all that.
+
+[ 4 ]
+//===============================================//
+//====   INTEGRATE PROGRAMS: [ 1 ] & [ 2 ]   ====//
+//===============================================//
+
+Combine the two programs so it can take in user data
+via registering, encrypt their data with simple XOR,
+and append it as a .csv file
+
+For retrieving data, the program must be able to decrypt
+the .csv file and present it neatly as 'Account Details'

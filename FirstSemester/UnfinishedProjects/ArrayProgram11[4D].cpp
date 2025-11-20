@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main() {
@@ -17,7 +19,8 @@ int main() {
                 cout << "  Student " << k + 1 << ":\n";
                 for (int o = 0; o < n; o++) {   //Subject Grade
                     cout << "   Enter [" << subjects[o] << "] grade: ";
-                    cin >> grades[i][j][k][o];
+                    srand(time(0));
+                    grades[i][j][k][o] = rand() % 51 + 50;
                 }
             }
             cout << endl;
@@ -59,7 +62,9 @@ int main() {
         }
         double quarterAve = quarterSum / 2;
         schoolSum += quarterAve;
-        cout << "\n" << quarters[i] << " QUARTER Average: " << quarterAve << "\n\n//=================//\n\n";
+
+        cout << "\n" << quarters[i] << " QUARTER Average: " << quarterAve;
+        cout << "\n\n//=================//\n\n";
     }
 
     double schoolAve = schoolSum / 4;

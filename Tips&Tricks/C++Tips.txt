@@ -4,6 +4,7 @@ Basic Structure
 Always remember this boilerplate:
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
