@@ -12,7 +12,7 @@ class Product {
         int prodId;
     public:
         // This is what's called an empty constructor.
-        // Ginagamit to para pag gumawa ng variable ung user at walang parameters, 
+        // Ginagamit to para pag gumawa ng object ung user at walang parameters, 
         // naka blank ung values ng variables mo at hindi random values.
         Product() {
             prodName = "";
