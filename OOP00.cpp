@@ -57,10 +57,10 @@ class Book {
             yearPublished = "00/00/0000";
         }
 
-        Book(string t, string a, int bookId, string c, string yearPub) {
+        Book(string t, string a, int id, string c, string yearPub) {
             title = t;
             author = a;
-            bookId = bookId;
+            bookId = id;
             borrowState = false;
             borrowerId = 0000;
 
@@ -68,9 +68,18 @@ class Book {
             yearPublished = yearPub;
         }
 
-        void displayInf() {
-            cout << title << endl;
+        void displayInf() const {
+            cout << title;
+            if (borrowState) {
+                cout << " [BORROWED BY " << borrowerId << "]";
+            }
+            cout << endl;
         }
+        void borrow(int id) {
+            borrowState = true;
+            borrowerId = id;
+        }
+
 
         string getTitle() {
             return title;
@@ -98,9 +107,9 @@ class Book {
 class Library {
     private:
         Book books[3] = {
-            Book("The man who moved.", "Socrates", 0001, "History", "01/27/1003"),
-            Book("The man who couldn't move.", "Socrates", 0002, "History", "05/12/1004"),
-            Book("The man who moved it.", "Socrates", 0003, "History", "09/03/1002")
+            Book("The man who moved.", "Socrates", 321145, "History", "01/27/1003"),
+            Book("The man who couldn't move.", "Socrates", 2314, "History", "05/12/1004"),
+            Book("The man who moved it.", "Socrates", 2145, "History", "09/03/1002")
         };
         int maxBooks = 3;
     public:
@@ -111,8 +120,25 @@ class Library {
             }
         }
 
-        void borrowBook() {
+        void borrowBook(int id) {
+            int bookChoice;
+
+            cout << "Pick a book 1 - 3: ";
+            cin >> bookChoice;
             
+            Book &chosenBook = books[bookChoice - 1];
+            cin.clear();
+            cin.ignore(9999, '\n');
+            cout << "+ - - - - - - - - - - - - - +\n\n";
+
+            cout << "+ - | BORROW RECEIPT | - +\n";
+            cout << "Title: " << chosenBook.getTitle() << endl
+                 << "Author: " << chosenBook.getAuthor() << endl
+                 << "Book ID: " << chosenBook.getBookId() << endl
+                 << "Category: " << chosenBook.getCategory() << endl
+                 << "Year Published: " << chosenBook.getYearPub() << endl;
+            cout << "\n+ - - - - - - - - - - - - - +\n\n";
+            chosenBook.borrow(id);
         }
 };
 
@@ -150,25 +176,33 @@ int main() {
 
     cout << "== Library System | HARDCORE EDITION | ==\n\n";
 
-    Student s1;
+    Student student1;
     Library lib;
+    int c;
 
-    HomePage(s1);
+    do {
+        HomePage(student1);
+        cout << "\n+ - - - - - - - - - - - - - +\n\n";
+        cout << "Books Available:\n";
+        lib.displayBooks();
+        cout << "\n+ - - - - - - - - - - - - - +\n";
+    
+        cout << "[1] Borrow || [2] Return || [3] Exit\n"
+             << "Enter Choice: ";
+        cin >> c;
+    
+        if (c == 1) {
+            lib.borrowBook(student1.getId());
+        } else if (c == 2) {
+    
+        } else if (c == 3) {
+            break;
+        } else {
+            cout << "Invalid Input!\n"
+                 << "Exiting Program . . .\n";
+        }
+    } while (c != 3);
 
-    char c;
-    cout << "\n+ - - - - - - - - - - - - - +\n\n";
-    cout << "Books Available:\n";
-    lib.displayBooks();
-    cout << "\n+ - - - - - - - - - - - - - +\n";
-
-    cout << "[1] Borrow || [2] Return\n";
-    cin >> c;
-
-    if (c == 1) {
-        
-    } else if (c == 2) {
-
-    }
 
     return 0;
 }
