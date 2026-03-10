@@ -1,0 +1,6 @@
+Literature|Pride and Prejudice|Jane Austen|279|1|Romance|English
+Literature|One Hundred Years of Solitude|Gabriel Garcia Marquez|417|0|Magical Realism|Spanish
+Literature|The Great Gatsby|F. Scott Fitzgerald|180|0|Classic|English
+Magazine|Scientific American|Various|90|0|784|Science
+Literature|Philippine History|Dominic Muldez|91|1|History|Filipino
+Magazine|Raiden Shogun's Secret Revealed|Sara Something|821|0|1|Politics
