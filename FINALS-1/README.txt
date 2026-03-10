@@ -55,9 +55,12 @@ Code Snippet - Saving Function P1:
 
     Explanation: Trust me, it's actually pretty simple once you know what `dynamic_cast` is.
 
-    `dynamic_cast` is a c++ operator that lets you determine if a pointer is pointed to a derived class or a base class.
+    `for (Book* b : Books)` is ranged for loop, which basically loops through the vector of base class pointers in library
+    and then uses dynamic_cast.
+
+    `dynamic_cast` is a c++ operator that lets you determine if a base class pointer is pointed to a derived class AT RUNTIME.
     If it sees that the pointer in `Book* b` is pointed to a derived class in this case a Literature class, it returns a valid
-    pointer, which can be interpreted as true.
+    pointer, which can be interpreted as true. If not, it returns a nullptr which can be interpreted as false.
 
     Knowing that, we can easily check with two if statements which derived class it points to. If it's not this, then it's the other one.
 
@@ -142,7 +145,7 @@ Code Snippet - Loading Function P5:
 // END
 
     Explanation: This last part's pretty simple to be honest, I'm sure everyone can see that it's
-    just reading the first token; token[1] and checking if it's Literature or Magazine.
+    just reading the first token; token[0] and checking if it's Literature or Magazine.
 
     It also checks if it's the right size, just to make sure it doesn't input a record if it's missing a token.
 
