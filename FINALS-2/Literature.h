@@ -29,13 +29,16 @@ class Literature : public Book {
             cout << "\n";
         }
 
-        void saveInformation(ofstream& out) const override {
+        void saveInformation(ofstream& out) const override {    // Writes to a file in a specific format for loading later on.
             out << "Literature|"
                 << getTitle() << "|"
                 << getAuthor() << "|"
                 << isAvailable() << "|"
                 << genre << "|"
                 << language << "\n";
+
+            // Sample format:
+            // Literature|Title|Author|0/1|Genre|Language
         }
 
         string getGenre() { return genre; }

@@ -1,6 +1,7 @@
 #pragma once
 using namespace std;
 
+// Base class of all Book Objects
 class Book {
     private:
         string type;
@@ -22,6 +23,7 @@ class Book {
             available(bAvail)
         { }
 
+        // Pure Virtual Functions
         virtual void showInformation() const = 0;
         virtual void saveInformation(ofstream& out) const = 0;
 

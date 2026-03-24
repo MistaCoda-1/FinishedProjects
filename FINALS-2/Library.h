@@ -6,19 +6,20 @@ class Library {
         const int MAX_BOOKS = 10;
         vector<Book*> Books;
     public:
+        // Styling purposes :)
         void printSeparator() const {
             cout << "\n| - - - - - - - - - - - - - - - - - - |\n\n";
         }
-
+        // Helper function used to check if the vector is empty.
         bool noBooks() const {
-            if (Books.size() <= 0) {
+            if (Books.empty()) {
                 cout << "There are no books in the library!\n";
                 printSeparator();
                 return true;
             }
             return false;
         }
-
+        // Loops through the vector and displays each objects' information.
         void showBooks() const {
             int i = 1;
             printSeparator();
@@ -29,9 +30,9 @@ class Library {
             }
             printSeparator();
         }
-
+        // Function for adding books.
         void addBook() {
-            if (Books.size() >= MAX_BOOKS) {
+            if (Books.size() >= MAX_BOOKS) {    // Checks if the library is full.
                 printSeparator();
                 cout << "Library is full! Please remove a book!\n";
                 printSeparator();
@@ -59,13 +60,14 @@ class Library {
             cout << "Enter Author: ";
             getline(cin, author);
 
+            // Takes user input and determines which derived object to create.
             if (choice == 1) {
                 createLitBook(title, author);
             } else {
                 createMagBook(title, author);
             }
         }
-
+        // Function for creating a literature book.
         void createLitBook(const string& t, const string& a) {
             string g, l;
 
@@ -80,7 +82,7 @@ class Library {
 
             printSeparator();
         }
-
+        // Function for creating a magazine book.
         void createMagBook(const string& t, const string& a) {
             string magTopic;
             int issueNo;
@@ -96,23 +98,23 @@ class Library {
 
             printSeparator();
         }
-
+        // Function to remove a specific book.
         void removeBook() {
             printSeparator();
-            if (noBooks()) { return; }
+            if (noBooks()) { return; }  // You can't remove something that doesn't exist yet.
 
             int i;
             cout << "Enter Book Index to Remove: ";
             cin >> i;
             --i;
 
-            if (i < 0 || i >= Books.size()) {
+            if (i < 0 || i >= Books.size()) {   // Error Handling
                 cout << "\nInvalid Index!\n";
                 printSeparator();
                 return;
             }
 
-            if (!Books[i]->isAvailable()) {
+            if (!Books[i]->isAvailable()) {     // Checks if the chosen is in the library and can be removed.
                 cout << "\nThat book is currently being borrowed!\n";
                 printSeparator();
                 return;
@@ -122,12 +124,12 @@ class Library {
             printSeparator();
 
             delete Books[i];
-            Books.erase(Books.begin() + i);
+            Books.erase(Books.begin() + i); // Finds the correct index of the book to be removed.
         }
-
+        // Function for borrowing a specific book.
         void borrowBook() {
             printSeparator();
-            if (noBooks()) { return; }
+            if (noBooks()) { return; }  // You can't borrow something that doesn't exist yet.
 
             int i;
             cout << "Enter Book Index to Borrow: ";
@@ -135,13 +137,13 @@ class Library {
 
             --i;
 
-            if (i < 0 || i >= Books.size()) {
+            if (i < 0 || i >= Books.size()) {   // Error handling again
                 cout << "\nInvalid Index!\n";
                 printSeparator();
                 return;
             }
 
-            if (!Books[i]->isAvailable()) {
+            if (!Books[i]->isAvailable()) {     // Checks if the chosen book is borrowed or not.
                 cout << "\nThat book is not available!\n";
                 printSeparator();
                 return;
@@ -152,10 +154,10 @@ class Library {
             cout << "\nYou borrowed [ " << Books[i]->getTitle() << " ] by [ " << Books[i]->getAuthor() << " ]\n";
             printSeparator();
         }
-
+        // Function for returning a specific book.
         void returnBook() {
             printSeparator();
-            if (noBooks()) { return; }
+            if (noBooks()) { return; }  // I'm not gonna repeat the same comments here lol.
 
             int i;
             cout << "Enter Book Index to Return: ";
@@ -163,13 +165,13 @@ class Library {
 
             --i;
 
-            if (i < 0 || i >= Books.size()) {
+            if (i < 0 || i >= Books.size()) {   
                 cout << "\nInvalid Index!\n";
                 printSeparator();
                 return;
             }
 
-            if (Books[i]->isAvailable()) {
+            if (Books[i]->isAvailable()) {  // Can't return a book that's yet to be borrowed.
                 cout << "\nYou can't return a book that hasn't been borrowed yet!\n";
                 printSeparator();
                 return;
@@ -180,7 +182,7 @@ class Library {
             cout << "\nYou returned [ " << Books[i]->getTitle() << " ] by [ " << Books[i]->getAuthor() << " ]\n";
             printSeparator();
         }
-
+        // Save function
         void saveToFile(const string& filename) const {
             ofstream out(filename);
             if (!out) {
@@ -188,10 +190,10 @@ class Library {
             }
 
             for (Book* b : Books) {
-                b->saveInformation(out);
+                b->saveInformation(out);    // Check literature.h or magazine.h for more info.
             }
         }
-
+        // Load Function
         void loadFromFile(const string& filename) {
             ifstream in(filename);
             if(!in) {
@@ -199,11 +201,12 @@ class Library {
                 return;
             }
 
-            for (Book* b : Books) {
+            for (Book* b : Books) {     // Clears all current books in the vector to avoid duplicates.
                 delete b;
             }
             Books.clear();
 
+            // Refer to README.txt for in-depth explanation.
             string line;
             while (getline(in, line)) {
                 vector<string> tokens;

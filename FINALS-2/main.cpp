@@ -8,7 +8,7 @@
     #include "Magazine.h"
     #include "Library.h"
 
-void doAction(int a, Library& l, bool& session) { 
+void doAction(int a, Library& l, bool& session) {   // Helper function to make int main() shorter.
     cin.ignore(9999, '\n');
     switch (a) {
     case 1: l.showBooks(); break;
@@ -24,7 +24,7 @@ void doAction(int a, Library& l, bool& session) {
 int main() {
 
     Library l;
-    string filename = "savefile.txt";
+    string filename = "savefile.txt";   // name of save file.
 
     bool session = true;
 

@@ -29,13 +29,16 @@ class Magazine : public Book {
             cout << "\n";
         }
         
-        void saveInformation(ofstream& out) const override {
+        void saveInformation(ofstream& out) const override {    // Writes to a file in a specific format for loading later on.
             out << "Magazine|"
                 << getTitle() << "|"
                 << getAuthor() << "|"
                 << isAvailable() << "|"
                 << topic << "|"
                 << issueNumber << "\n";
+
+            // Sample format:
+            // Magazine|Title|Author|0/1|Topic|Issue Number
         }
 
         string getTopic() { return topic; }
